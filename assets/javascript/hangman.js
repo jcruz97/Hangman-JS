@@ -1,43 +1,14 @@
-var programming_languages = [
-	"python",
-	"javascript",
-	"mongodb",
-	"json",
-	"java",
-	"html",
-	"css",
-	"c",
-	"csharp",
-	"golang",
-	"kotlin",
-	"php",
-	"sql",
-	"ruby"
-]
+//This file contains every principal functions needed for the game
 
+//A bunch of variables to begin softly
 let answer = '';
-let maxWrong = 6;
+let maxTries = 6;
 let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
 function randomWord() {
-  answer = programming_languages[Math.floor(Math.random() * programming_languages.length)];
-}
-
-function generateButtons() {
-  let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
-    `
-      <button
-        class="btn btn-lg btn-primary m-2"
-        id='` + letter + `'
-        onClick="handleGuess('` + letter + `')"
-      >
-        ` + letter + `
-      </button>
-    `).join('');
-
-  document.getElementById('keyboard').innerHTML = buttonsHTML;
+  answer = belgian_beer[Math.floor(Math.random() * belgian_beer.length)];
 }
 
 function handleGuess(chosenLetter) {
@@ -56,7 +27,7 @@ function handleGuess(chosenLetter) {
 }
 
 function updateHangmanPicture() {
-  document.getElementById('hangmanPic').src = './images/' + mistakes + '.jpg';
+  document.getElementById('hangmanPic').src = './assets/images/' + mistakes + '.jpg';
 }
 
 function checkIfGameWon() {
@@ -66,9 +37,9 @@ function checkIfGameWon() {
 }
 
 function checkIfGameLost() {
-  if (mistakes === maxWrong) {
+  if (mistakes === maxTries) {
     document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
-    document.getElementById('keyboard').innerHTML = 'You Lost!!!';
+    document.getElementById('keyboard').innerHTML = "You shouldn"+"'"+"t have another beer...";
   }
 }
 
@@ -85,16 +56,16 @@ function updateMistakes() {
 function reset() {
   mistakes = 0;
   guessed = [];
-  document.getElementById('hangmanPic').src = './images/0.jpg';
+  document.getElementById('hangmanPic').src = './assets/images/0.jpg';
 
   randomWord();
   guessedWord();
   updateMistakes();
-  generateButtons();
+  letterButtons();
 }
 
-document.getElementById('maxWrong').innerHTML = maxWrong;
+document.getElementById('maxWrong').innerHTML = maxTries;
 
 randomWord();
-generateButtons();
+letterButtons();
 guessedWord();
