@@ -6,3 +6,9 @@ function letterButtons() {
 }
 
 //This function permits the keyboard to be generated for every letter of the alphabet
+
+function randomWord() {
+    answer = belgian_beer[Math.floor(Math.random() * belgian_beer.length)];
+}
+
+//This function randomize an answer in th list provided in the beer_list file

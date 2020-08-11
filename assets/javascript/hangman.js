@@ -7,10 +7,6 @@ let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
-function randomWord() {
-  answer = belgian_beer[Math.floor(Math.random() * belgian_beer.length)];
-}
-
 function handleGuess(chosenLetter) {
   guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
   document.getElementById(chosenLetter).setAttribute('disabled', true);
@@ -32,13 +28,13 @@ function updateHangmanPicture() {
 
 function checkIfGameWon() {
   if (wordStatus === answer) {
-    document.getElementById('keyboard').innerHTML = 'You Won!!!';
+    document.getElementById('keyboard').innerHTML = 'Congrats mate';
   }
 }
 
 function checkIfGameLost() {
   if (mistakes === maxTries) {
-    document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
+    document.getElementById('wordSpotlight').innerHTML = 'The correct beer was: ' + answer;
     document.getElementById('keyboard').innerHTML = "You shouldn"+"'"+"t have another beer...";
   }
 }
@@ -53,7 +49,7 @@ function updateMistakes() {
   document.getElementById('mistakes').innerHTML = mistakes;
 }
 
-function reset() {
+function reset() {  //Coupled to a button, if the game is lost or the player is a coward, it will reset the game
   mistakes = 0;
   guessed = [];
   document.getElementById('hangmanPic').src = './assets/images/0.jpg';
