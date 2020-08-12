@@ -1,11 +1,9 @@
-@import url(//db.onlinewebfonts.com/c/9953a2e67943cbfc522cf18c03367b87?family=tintin);
-
 html {
     height: 100%;
 }
 
 body{
-    font-family: "tintin";
+    font-family: 'Rowdies', cursive;
     background: linear-gradient(to bottom, #bc7012 0%,#efd002 100%);
     background-repeat: no-repeat;
     background-size: cover;
