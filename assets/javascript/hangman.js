@@ -7,6 +7,7 @@ let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
+//Main function, it will handle all functions to know where the gamer is.
 function handleGuess(chosenLetter) {
   guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
   document.getElementById(chosenLetter).setAttribute('disabled', true);
@@ -22,10 +23,12 @@ function handleGuess(chosenLetter) {
   }
 }
 
+//For every mistake made, the function will take a updated picture of the hangman from the images folder.
 function updateHangmanPicture() {
   document.getElementById('hangmanPic').src = './assets/images/' + mistakes + '.jpg';
 }
 
+//The following checkers will secure that the game is won or lost.
 function checkIfGameWon() {
   if (wordStatus === answer) {
     document.getElementById('keyboard').innerHTML = 'Congrats mate';
@@ -49,7 +52,8 @@ function updateMistakes() {
   document.getElementById('mistakes').innerHTML = mistakes;
 }
 
-function reset() {  //Coupled to a button, if the game is lost or the player is a coward, it will reset the game
+//Coupled to a button, if the game is lost or the player is a coward, it will reset the game
+function reset() {  
   mistakes = 0;
   guessed = [];
   document.getElementById('hangmanPic').src = './assets/images/0.jpg';
@@ -62,6 +66,8 @@ function reset() {  //Coupled to a button, if the game is lost or the player is 
 
 document.getElementById('maxWrong').innerHTML = maxTries;
 
+//Functions called from the 'initiate.js' file.
 randomWord();
 letterButtons();
+
 guessedWord();

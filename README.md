@@ -23,7 +23,11 @@ With several help from forums, friends and colleagues, I overcame some difficult
 
 1* I had too many issues to put canvas into my game, I put images from another version of the game.
 
+2* Some parts of the code must be improved later for more options in hte game.
 
+3* As I said my majopr problem was handling JS so it's really difficult to tell what comes from that or from "real" dev related problems.
+
+4* I am not able to reproduce all of the stuff for later, is it normal to go check doc many times?
 
 Instructions
 ------------  
